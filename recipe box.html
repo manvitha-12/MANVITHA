@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Menu</title>
+    <style>
+        /* Reset default margin & padding */
+        body, h1, h2, p, ul {
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: #ff6600;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Recipe Container */
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        /* Recipe Card */
+        .recipe-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .recipe-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-bottom: 2px solid #ff6600;
+        }
+
+        .recipe-card h2 {
+            margin: 10px 0;
+            font-size: 20px;
+            color: #ff6600;
+        }
+
+        .recipe-card p {
+            font-size: 14px;
+            margin: 10px 0;
+        }
+
+        .recipe-card button {
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+
+        .recipe-card button:hover {
+            background-color: #e55a00;
+        }
+
+        /* Modal Window */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Menu -->
+    <div class="navbar">
+        <a href="#">Breakfast</a>
+        <a href="#">Lunch</a>
+        <a href="#">Dinner</a>
+        <a href="#">Desserts</a>
+    </div>
+
+    <!-- Recipe Menu -->
+    <div class="container">
+        <div class="recipe-card">
+            <img src="pancake-4724890_640.jpg" alt="Pancakes">
+            <h2>Pancakes</h2>
+            <p>Fluffy and delicious pancakes for breakfast.</p>
+            <button id="pancake-button">View Recipe</button>
+            <div id="pancake-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Pancake Ingredients</h2>
+                    <ul>
+                        <li>1 cup all-purpose flour</li>
+                        <li>2 tablespoons sugar</li>
+                        <li>2 teaspoons baking powder</li>
+                        <li>1/4 teaspoon salt</li>
+                        <li>1 cup milk</li>
+                        <li>1 large egg</li>
+                        <li>2 tablespoons butter, melted</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="recipe-card">
+            <img src="noodles-7390775_640.jpg" alt="Pasta">
+            <h2>Spaghetti Bolognese</h2>
+            <p>Classic Italian pasta with rich tomato sauce.</p>
+            <button id="spaghetti-button">View Recipe</button>
+            <div id="spaghetti-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Spaghetti Bolognese Ingredients</h2>
+                    <ul>
+                        <li>500g minced beef</li>
+                        <li>1 onion, chopped</li>
+                        <li>2 cloves garlic, minced</li>
+                        <li>1 carrot, chopped</li>
+                        <li>1 can diced tomatoes</li>
+                        <li>1 cup beef broth</li>
+                        <li>1 tablespoon tomato paste</li>
+                        <li>1 teaspoon dried basil</li>
+                        <li>1 teaspoon dried oregano</li>
+                        <li>Salt and pepper, to taste</li>
+                        <li>500g spaghetti</li>
+                        <li>Grated Parmesan cheese, for serving</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="recipe-card">
+            <img src="biryani-7009110_640.jpg" alt="biryani">
+            <h2>Biryani</h2>
+            <p>Crisp romaine lettuce with creamy dressing.</p>
+            <button id="biryani-button">View Recipe</button>
+            <div id="biryani-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Biryani Ingredients</h2>
+                    <ul>
+                        <li>1 cup basmati rice</li>
+                        <li>2 cups water</li>
+                        <li>1 tablespoon ghee or vegetable oil</li>
+                        <li>1 onion, chopped</li>
+                        <li>2 cloves garlic, minced</li>
+                        <li>1 teaspoon ground cumin</li>
+                        <li>1 teaspoon ground coriander</li>
+                        <li>1/2 teaspoon turmeric</li>
+                        <li>1/2 teaspoon red chili powder</li>
+                        <li>Salt, to taste</li>
+                        <li>2 cups mixed vegetables (e.g. peas, carrots, cauliflower)</li>
+                        <li>2 tablespoons chopped fresh cilantro</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="recipe-card">
+            <img src="madeleine-5374568_640.jpg" alt="chocalate Browines">
+            <h2>Chocolate Brownies</h2>
+            <p>Rich, fudgy, and irresistibly chocolatey.</p>
+            <button id="brownie-button">View Recipe</button>
+            <div id="brownie-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Chocolate Brownie Ingredients</h2>
+                    <ul>
+                        <li>1 and 1/2 sticks unsalted butter, plus more for greasing the pan</li>
+                        <li>2 cups sugar</li>
+                        <li>4 large eggs</li>
+                        <li>1/2 cup unsweetened cocoa powder</li>
+                        <li>1 teaspoon vanilla extract</li>
+                        <li>1 and 1/4 cups all-purpose flour</li>
+                        <li>1 teaspoon salt</li>
+                        <li>1 cup semi-sweet chocolate chips</li>
+                        <li>1 cup chopped walnuts (optional)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get the modal elements
+        var pancakeModal = document.getElementById("pancake-modal");
+        var spaghettiModal = document.getElementById("spaghetti-modal");
+        var biryaniModal = document.getElementById("biryani-modal");
+        var brownieModal = document.getElementById("brownie-modal");
+
+        // Get the button elements
+        var pancakeButton = document.getElementById("pancake-button");
+        var spaghettiButton = document.getElementById("spaghetti-button");
+        var biryaniButton = document.getElementById("biryani-button");
+        var brownieButton = document.getElementById("brownie-button");
+
+        // Get the close elements
+        var pancakeClose = document.querySelector("#pancake-modal .close");
+        var spaghettiClose = document.querySelector("#spaghetti-modal .close");
+        var biryaniClose = document.querySelector("#biryani-modal .close");
+        var brownieClose = document.querySelector("#brownie-modal .close");
+
+        // Add event listeners to the buttons
+        pancakeButton.onclick = function() {
+            pancakeModal.style.display = "block";
+        }
+
+        spaghettiButton.onclick = function() {
+            spaghettiModal.style.display = "block";
+        }
+
+        biryaniButton.onclick = function() {
+            biryaniModal.style.display = "block";
+        }
+
+        brownieButton.onclick = function() {
+            brownieModal.style.display = "block";
+        }
+
+        // Add event listeners to the close elements
+        pancakeClose.onclick = function() {
+            pancakeModal.style.display = "none";
+        }
+
+        spaghettiClose.onclick = function() {
+            spaghettiModal.style.display = "none";
+        }
+
+        biryaniClose.onclick = function() {
+            biryaniModal.style.display = "none";
+        }
+
+        brownieClose.onclick = function() {
+            brownieModal.style.display = "none";
+        }
+
+        // Add event listeners to the modal elements
+        window.onclick = function(event) {
+            if (event.target == pancakeModal) {
+                pancakeModal.style.display = "none";
+            }
+            if (event.target == spaghettiModal) {
+                spaghettiModal.style.display = "none";
+            }
+            if (event.target == biryaniModal) {
+                biryaniModal.style.display = "none";
+            }
+            if (event.target == brownieModal) {
+                brownieModal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
