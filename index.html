@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Menu</title>
+    <style>
+        /* Reset default margin & padding */
+        body, h1, h2, p, ul {
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: #ff6600;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Recipe Container */
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        /* Recipe Card */
+        .recipe-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .recipe-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-bottom: 2px solid #ff6600;
+        }
+
+        .recipe-card h2 {
+            margin: 10px 0;
+            font-size: 20px;
+            color: #ff6600;
+        }
+
+        .recipe-card p {
+            font-size: 14px;
+            margin: 10px 0;
+        }
+
+        .recipe-card button {
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+
+        .recipe-card button:hover {
+            background-color: #e55a00;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Menu -->
+    <div class="navbar">
+        <a href="#">Breakfast</a>
+        <a href="#">Lunch</a>
+        <a href="#">Dinner</a>
+        <a href="#">Desserts</a>
+    </div>
+
+    <!-- Recipe Menu -->
+    <div class="container">
+        <div class="recipe-card">
+            <img src="pancake-4724890_640.jpg" alt="Pancakes">
+            <h2>Pancakes</h2>
+            <p>Fluffy and delicious pancakes for breakfast.</p>
+            <button>View Recipe</button>
+        </div>
+
+        <div class="recipe-card">
+            <img src="noodles-7390775_640.jpg" alt="Pasta">
+            <h2>Spaghetti Bolognese</h2>
+            <p>Classic Italian pasta with rich tomato sauce.</p>
+            <button>View Recipe</button>
+        </div>
+
+        <div class="recipe-card">
+            <img src="biryani-7009110_640.jpg" alt="biryani">
+            <h2>Biryani</h2>
+            <p>Crisp romaine lettuce with creamy dressing.</p>
+            <button>View Recipe</button>
+        </div>
+
+        <div class="recipe-card">
+            <img src="madeleine-5374568_640.jpg" alt="chocalate Browines">
+            <h2>Chocolate Brownies</h2>
+            <p>Rich, fudgy, and irresistibly chocolatey.</p>
+            <button>View Recipe</button>
+        </div>
+    </div>
+
+</body>
+</html>
